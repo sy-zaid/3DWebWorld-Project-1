@@ -90,9 +90,43 @@ body {
 }
 
 /* PAGE - 2 CSS */
-#page-2{
+#page-2 {
   height: 100vh;
   width: 100vw;
   background-color: #0233c5;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0% 10%;
+  align-items: flex-start;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#page-2 > h1 {
+  color: rgba(255, 255, 255, 0.527);
+  font-size: 50px;
+  font-weight: 400;
+  margin-top: 30px;
+}
+
+#page-2 > h2 {
+  color: white;
+  font-weight: 100;
+  font-size: 35px;
+}
+
+
+/* PAGE- 3 CSS */
+#page-3{
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  /* background-color: red; */
+}
+
+#page-3>canvas{
+  height: 100vh;
+  width: 100vw;
   position: relative;
 }
