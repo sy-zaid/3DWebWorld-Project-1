@@ -161,7 +161,7 @@ function creating_canvas(elem, triggerPoint, imageFiles, frameCount) {
   });
 }
 
-let sourceOfImages = `
+let museum = `
 static/frames00013.png
 static/frames00010.png
 static/frames00016.png
@@ -229,8 +229,67 @@ static/frames00199.png
 static/frames00202.png
 static/frames00007.png
 `;
-creating_canvas("canvas", "#page-3", sourceOfImages, 67);
+creating_canvas("canvas", "#page-3", museum, 67);
 
 // PAGE - 4 | JS
 
 text_animation(`#page-4>h1`);
+
+// PAGE - 5 | JS
+let bridges = `
+static/bridges00004.png
+static/bridges00007.png
+static/bridges00010.png
+static/bridges00013.png
+static/bridges00016.png
+static/bridges00019.png
+static/bridges00022.png
+static/bridges00025.png
+static/bridges00028.png
+static/bridges00031.png
+static/bridges00034.png
+static/bridges00037.png
+static/bridges00040.png
+static/bridges00043.png
+static/bridges00046.png
+static/bridges00049.png
+static/bridges00052.png
+static/bridges00055.png
+static/bridges00058.png
+static/bridges00061.png
+static/bridges00064.png
+static/bridges00067.png
+static/bridges00070.png
+static/bridges00073.png
+static/bridges00076.png
+static/bridges00079.png
+static/bridges00082.png
+static/bridges00085.png
+static/bridges00088.png
+static/bridges00091.png
+static/bridges00094.png
+static/bridges00097.png
+static/bridges00100.png
+static/bridges00103.png
+static/bridges00106.png
+static/bridges00109.png
+static/bridges00112.png
+static/bridges00115.png
+static/bridges00118.png
+static/bridges00121.png
+static/bridges00124.png
+static/bridges00127.png
+static/bridges00130.png
+static/bridges00133.png
+static/bridges00136.png
+static/bridges00139.png
+static/bridges00142.png
+static/bridges00145.png
+static/bridges00148.png
+static/bridges00151.png
+static/bridges00154.png
+static/bridges00157.png
+static/bridges00160.png
+static/bridges00163.png`;
+
+creating_canvas("#page-5>canvas", "#page-5", bridges, 67);
