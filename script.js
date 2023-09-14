@@ -114,7 +114,7 @@ function creating_canvas(elem, triggerPoint, imageFiles, frameCount) {
   gsap.to(imageSeq, {
     frame: frameCount - 1,
     snap: `frame`,
-    ease: `Power4.easeOut`,
+    ease: `Power4.eastOut`,
     scrollTrigger: {
       scrub: 0.5,
       scroller: "#main",
@@ -159,7 +159,7 @@ function creating_canvas(elem, triggerPoint, imageFiles, frameCount) {
     end: `bottom top`,
     scrub: 0.8,
   });
-  context.fillRect(0, 0, canvas.width, canvas.height) ;
+  
 }
 
 let museum = `
@@ -293,8 +293,6 @@ static/bridges00157.png
 static/bridges00160.png
 static/bridges00163.png`;
 
-// creating_canvas("#page-5>canvas", "#page-5", bridges, 56);
+creating_canvas("#page-5>canvas", "#page-5", bridges, 54);
 
 // PAGE - 6 | JS
-creating_canvas("#page-6>canvas", "#page-6", bridges, 56);
-text_animation(`#page-6>h1`);
