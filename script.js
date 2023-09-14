@@ -40,35 +40,45 @@ function scrollEffect() {
 
 scrollEffect();
 
-let span = "";
+// PAGE - 2 | Javascript
+function text_animation(elem) {
+  let span = "";
 
-let h1 = document.querySelector("#page-2>h1").textContent.split(" ");
-// console.log(typeof(h1))
+  let h1 = document.querySelector(`${elem}`).textContent.split(" ");
+  // console.log(typeof(h1))
 
-let spanned_val = [];
-h1.forEach((value) => {
-  if (value != "") {
-    span += `<span> ${value} </span>`;
-    document.querySelector("#page-2>h1").innerHTML = span;
-  }
-});
-// console.log(span)
+  let spanned_val = [];
+  h1.forEach((value) => {
+    if (value != "") {
+      span += `<span> ${value} </span>`;
+      document.querySelector(`${elem}`).innerHTML = span;
+    }
+  });
+  console.log(span);
 
-gsap.to("#page-2>h1>span", {
-  scrollTrigger: {
-    trigger: `#page-2>h1>span`,
-    start: `top bottom`,
-    end: `bottom top`,
-    scroller: `#main`,
-    scrub: 0.5,
-  },
-  stagger: 0.2,
-  color: "#fff",
-});
+  gsap.to(`${elem}>span`, {
+    scrollTrigger: {
+      trigger: `${elem}>span`,
+      start: `top bottom`,
+      end: `bottom top`,
+      scroller: `#main`,
+      scrub: 0.5,
+    },
+    stagger: 0.2,
+    color: "#fff",
+  });
+}
+text_animation(`#page-2>h1`);
 
 // PAGE - 3 | Javascript
-function creating_canvas() {
-  let canvas = document.querySelector("canvas");
+function creating_canvas(elem, triggerPoint, imageFiles, frameCount) {
+  /*Parameter elem: Defines the element the animation will be played on e.g. "canvas-1"
+    Parameter triggerPoint: Defines the page/ point where the animation will start or trigger.
+    Parameter imageFiles: Contains the source variable of the images.
+    frameCount: Number of frames in the canvas.
+  
+  */
+  let canvas = document.querySelector(elem);
   let context = canvas.getContext("2d");
 
   canvas.width = window.innerWidth;
@@ -80,14 +90,78 @@ function creating_canvas() {
     render();
   });
 
-  let frameno = 67;
-
   let imagesList = [];
   let imageSeq = {
     frame: 1,
   };
 
-  let sourceOfImages = `
+  let sourceOfImages = imageFiles;
+  sourceOfImages = sourceOfImages.split("\n");
+
+  function set_image_list(sList, fCount) {
+    /*This function sets up the empty array into an array of images along with their paths*/
+
+    for (let i = 0; i < fCount; i++) {
+      let newImage = new Image();
+      newImage.src = sourceOfImages[i];
+      sList.push(newImage);
+    }
+  }
+
+  set_image_list(imagesList, frameCount);
+  console.log(imagesList);
+
+  gsap.to(imageSeq, {
+    frame: frameCount - 1,
+    snap: `frame`,
+    ease: `Power4.easeOut`,
+    scrollTrigger: {
+      scrub: 0.5,
+      scroller: "#main",
+      trigger: `${triggerPoint}`,
+      start: `top top`,
+      end: `250% top`,
+    },
+    onUpdate: render,
+  });
+
+  imagesList[1].onload = render;
+
+  function render() {
+    scaleImage(imagesList[imageSeq.frame], context);
+  }
+
+  function scaleImage(lImg, cont) {
+    let canvas = cont.canvas;
+    let hRatio = canvas.width / lImg.width;
+    let vRatio = canvas.height / lImg.height;
+    max_ratio = Math.max(hRatio, vRatio);
+    let centerX = (canvas.width - lImg.width * max_ratio) / 2;
+    let centerY = (canvas.height - lImg.height * max_ratio) / 2;
+    cont.clearRect(0, 0, canvas.width, canvas.height);
+    cont.drawImage(
+      lImg,
+      0,
+      0,
+      lImg.width,
+      lImg.height,
+      centerX,
+      centerY,
+      lImg.width * max_ratio,
+      lImg.height * max_ratio
+    );
+  }
+  ScrollTrigger.create({
+    trigger: `${triggerPoint}`,
+    pin: true,
+    scroller: `#main`,
+    start: `top top`,
+    end: `bottom top`,
+    scrub: 0.8,
+  });
+}
+
+let sourceOfImages = `
 static/frames00013.png
 static/frames00010.png
 static/frames00016.png
@@ -155,71 +229,8 @@ static/frames00199.png
 static/frames00202.png
 static/frames00007.png
 `;
-  sourceOfImages = sourceOfImages.split("\n");
+creating_canvas("canvas", "#page-3", sourceOfImages, 67);
 
-  function set_image_list(sList, fCount) {
-    /*This function sets up the empty array into an array of images along with their paths*/
+// PAGE - 4 | JS
 
-    for (let i = 0; i < fCount; i++) {
-      let newImage = new Image();
-      newImage.src = sourceOfImages[i];
-      sList.push(newImage);
-    }
-  }
-
-  set_image_list(imagesList, frameno);
-  // console.log(imagesList)
-
-  gsap.to(imageSeq, {
-    frame: frameno - 1,
-    snap: `frame`,
-    ease: `Power4.easeOut`,
-    scrollTrigger: {
-      scrub: .5,
-      scroller: "#main",
-      trigger: `#page-3`,
-      start: `top top`,
-      end: `250% top`,
-    },
-    onUpdate: render,
-  });
-
-  imagesList[1].onload = render;
-
-  function render() {
-    scaleImage(imagesList[imageSeq.frame], context);
-  }
-
-  function scaleImage(lImg, cont) {
-    let canvas = cont.canvas;
-    let hRatio = canvas.width / lImg.width;
-    let vRatio = canvas.height / lImg.height;
-    max_ratio = Math.max(hRatio, vRatio);
-    let centerX = (canvas.width - lImg.width * max_ratio) / 2;
-    let centerY = (canvas.height - lImg.height * max_ratio) / 2;
-    cont.clearRect(0, 0, canvas.width, canvas.height);
-    cont.drawImage(
-      lImg,
-      0,
-      0,
-      lImg.width,
-      lImg.height,
-      centerX,
-      centerY,
-      lImg.width * max_ratio,
-      lImg.height * max_ratio
-    );
-  }
-  ScrollTrigger.create({
-    trigger: "#page-3",
-    pin: true,
-    scroller: `#main`,
-    start: `top top`,
-    end: `bottom top`,
-    scrub:0.8
-  });
-}
-
-creating_canvas();
-
-
+text_animation(`#page-4>h1`);
