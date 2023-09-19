@@ -369,7 +369,7 @@ body {
   line-height: 95px;
 }
 
-#page-10 > #pd10-top > button {
+#custom-button {
   padding: 20px 30px;
   border-radius: 40px;
   margin-top: 20px;
@@ -377,30 +377,59 @@ body {
   border: none;
   color: #0340d5;
   font-family: jost;
+  transition: all ease 0.5s;
+}
+#custom-button:hover {
+  background-color: #0233c5;
+  color: white;
+  border: 1px solid white;
 }
 
-#page-10>#pd10-middle{
+#page-10 > #pd10-middle {
   height: 50%;
   width: 100%;
   /* margin-top: 50px; */
-  background-color: red;
+  /* background-color: red; */
+  border-top: 1px solid rgba(255, 255, 255, 0.568);
 }
 
-#pd10-middle>#middle-button-1{
+#pd10-middle > #middle-buttons {
+  position: relative;
+  display: flex;
   height: 33.3%;
   width: 100%;
-  background-color: greenyellow;
-  border:1px solid black;
+  border-bottom: 0.5px solid white;
+  padding: 2.5% 6%;
+  align-items: center;
+  justify-content: space-between;
 }
-#pd10-middle>#middle-button-2{
-  height: 33.3%;
-  width: 100%;
-  background-color: greenyellow;
-  border:1px solid black;
+
+#pd10-button-texts {
+  font-size: 35px;
+  font-weight: 300;
+  color: white;
+  font-family: jost;
+  z-index: 99;
 }
-#pd10-middle>#middle-button-3{
-  height: 33.3%;
+
+#pd10-arrows {
+  color: white;
+  font-size: 25px;
+  z-index: 99;
+}
+
+#pd10-effect {
+  height: 0%;
   width: 100%;
-  background-color: greenyellow;
-  border:1px solid black;
+  position: absolute;
+  background-color: #0233c5;
+  /* z-index: -9999999; */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all ease 0.5s;
+}
+
+#middle-buttons:hover #pd10-effect {
+  height: 100%;
 }
