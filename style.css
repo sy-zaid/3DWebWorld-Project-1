@@ -12,6 +12,10 @@ body {
   font-family: a;
   src: url("https://fonts.cdnfonts.com/css/hindenburg"), sans-serif;
 }
+@font-face {
+  font-family: jost;
+  src: url(./static/Fonts/Jost-VariableFont_wght.ttf);
+}
 
 #main {
   position: relative;
@@ -177,7 +181,226 @@ body {
 #page-6 {
   height: 100vh;
   width: 100vw;
-  background-color: #0233c5;
+  padding: 10% 10%;
+  background-color: #0940e0;
   position: relative;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#page-6 > h1 {
+  position: relative;
+  color: rgba(255, 255, 255, 0.527);
+  font-size: 50px;
+  font-weight: 400;
+  margin-top: 30px;
+}
+
+#page-6 > h2 {
+  color: white;
+  font-weight: 100;
+  font-size: 35px;
+}
+
+/* PAGE - 7 CSS */
+#page-7 {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0233c5;
+  font-family: jost;
+}
+#page-7 > canvas {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: #0233c5;
+}
+#page-7 > #circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.021);
+  border: 1px solid rgba(255, 255, 255, 0.281);
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  height: 26vw;
+  width: 26vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#page-7 > #circle > #inner-circle {
+  height: 70%;
+  width: 70%;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #093fe060;
+  z-index: 10;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  border: 1px solid white;
+}
+
+#page-7 > #circle > #inner-circle > h1 {
+  position: absolute;
+  border-radius: 50%;
+  background-color: transparent;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: 200;
+}
+
+/* PAGE - 8 CSS */
+#page-8 {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: #0340d5;
+}
+
+#page-8 > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#page-8 > #pd8-text {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+#pd8-text > h1 {
+  color: white;
+  font-weight: 100;
+  font-size: 70px;
+  margin-bottom: 10px;
+  font-family: jost;
+  font-weight: 300;
+}
+
+#pd8-text > button {
+  padding: 20px 30px;
+  border-radius: 40px;
+  font-size: 18px;
+  border: none;
+  color: #0340d5;
+  font-family: jost;
+}
+
+/* PAGE - 9 CSS */
+#page-9 {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  background-color: #0340d5;
+}
+
+#page-9 > #pd9-left {
+  height: 100%;
+  width: 40%;
+  position: relative;
+  background-color: #0340d5;
+}
+#page-9 > #pd9-left > h1 {
+  color: white;
+  font-size: 100px;
+  font-weight: 300;
+  position: absolute;
+  font-family: jost;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  line-height: 90px;
+}
+
+#page-9 > #pd9-right {
+  height: 100%;
+  width: 60%;
+  position: relative;
+  background-color: #0340d5;
+}
+
+#pd9-right-dcenter {
+  height: 60%;
+  width: 80%;
+  background-color: black;
+  position: absolute;
+  border-radius: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url(https://thisismagma.com/wp-content/uploads/2023/04/magma.wp2.cubdev.com-home-1.jpeg);
+  background-size: cover;
+}
+
+/* PAGE - 10 CSS */
+#page-10 {
+  height: 110vh;
+  width: 100vw;
+  position: relative;
+  background-color: black;
+  border: none;
+}
+
+#page-10 > #pd10-top {
+  height: 50%;
+  width: 100%;
+  position: relative;
+  /* background-color: magenta; */
+  font-family: jost;
+  padding-left: 6%;
+  padding-top: 4%;
+}
+
+#page-10 > #pd10-top > h1 {
+  font-weight: 300;
+  font-size: 90px;
+  color: white;
+  line-height: 95px;
+}
+
+#page-10 > #pd10-top > button {
+  padding: 20px 30px;
+  border-radius: 40px;
+  margin-top: 20px;
+  font-size: 18px;
+  border: none;
+  color: #0340d5;
+  font-family: jost;
+}
+
+#page-10>#pd10-middle{
+  height: 50%;
+  width: 100%;
+  /* margin-top: 50px; */
+  background-color: red;
+}
+
+#pd10-middle>#middle-button-1{
+  height: 33.3%;
+  width: 100%;
+  background-color: greenyellow;
+  border:1px solid black;
+}
+#pd10-middle>#middle-button-2{
+  height: 33.3%;
+  width: 100%;
+  background-color: greenyellow;
+  border:1px solid black;
+}
+#pd10-middle>#middle-button-3{
+  height: 33.3%;
+  width: 100%;
+  background-color: greenyellow;
+  border:1px solid black;
 }
