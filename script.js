@@ -41,34 +41,58 @@ function scrollEffect() {
 scrollEffect();
 
 // PAGE - 2 | Javascript
-function text_animation(elem) {
+function text_animation(elem, skipped, end = null) {
   let span = "";
 
   let h1 = document.querySelector(`${elem}`).textContent.split(" ");
   // console.log(typeof(h1))
 
   let spanned_val = [];
-  h1.forEach((value) => {
+  // h1.forEach((value) => {
+  //   if (value != "") {
+  //     span += `<span> ${value} </span>`;
+  //     document.querySelector(`${elem}`).innerHTML = span;
+  //   }
+  // });
+  for (let i = skipped; i <= h1.length; i++) {
+    let value = h1[i];
+    // console.log(value)
     if (value != "") {
       span += `<span> ${value} </span>`;
       document.querySelector(`${elem}`).innerHTML = span;
     }
-  });
+  }
   // console.log(span);
-
-  gsap.to(`${elem}>span`, {
-    scrollTrigger: {
-      trigger: `${elem}>span`,
-      start: `100% bottom`,
-      end: `bottom 30%`,
-      scroller: `#main`,
-      scrub: 0.5,
-    },
-    stagger: 0.2,
-    color: "#fff",
-  });
+  if (end == null) {
+    gsap.to(`${elem}>span`, {
+      scrollTrigger: {
+        trigger: `${elem}>span`,
+        start: `100% bottom`,
+        end: `bottom 30%`,
+        scroller: `#main`,
+        scrub: 0.5,
+      },
+      stagger: 0.2,
+      color: "#fff",
+    });
+  } else {
+    gsap.to(`${elem}>span`, {
+      scrollTrigger: {
+        trigger: `${elem}>span`,
+        start: `top bottom`,
+        end: `bottom ${end}`,
+        scroller: `#main`,
+        scrub: 0.9,
+        // markers:true
+      },
+      stagger: 0.2,
+      delay:.5,
+      color: "#fff",
+    });
+  }
 }
-text_animation(`#page-2>h1`);
+
+text_animation(`#page-2>h1`, 0);
 
 // PAGE - 3 | Javascript
 function creating_canvas(elem, triggerPoint, endPoint, imageFiles, frameCount) {
@@ -233,7 +257,7 @@ creating_canvas("canvas", "#page-3", `bottom`, museum, 67);
 
 // PAGE - 4 | JS
 
-text_animation(`#page-4>h1`);
+text_animation(`#page-4>h1`, 0);
 
 // PAGE - 5 | JS
 let bridges = `
@@ -295,7 +319,7 @@ static/bridges00163.png`;
 creating_canvas("#page-5>canvas", "#page-5", `bottom`, bridges, 54);
 
 // PAGE - 6 | JS
-text_animation(`#page-6>h1`);
+text_animation(`#page-6>h1`, 0);
 
 // PAGE - 7 | JS
 
@@ -450,3 +474,9 @@ gsap.to(`#page-7>#circle`, {
   },
   scale: 1.6,
 });
+
+// PAGE - 9 | JS
+text_animation(`#p9-li-1`, 0,end=`50%`);
+text_animation(`#p9-li-2`, 0,end=`50%`);
+text_animation(`#p9-li-3`, 0,end=`50%`);
+text_animation(`#p9-li-4`, 0,end=`50%`);

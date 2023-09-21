@@ -91,13 +91,14 @@ body {
   border: none;
   color: #0940e0;
   background-color: white;
+  z-index: 9999;
 }
 
 /* PAGE - 2 CSS */
 #page-2 {
   height: 100vh;
   width: 100vw;
-  background-color: #0233c5;
+  background-color: #0940e0;
   position: relative;
   display: flex;
   justify-content: center;
@@ -139,7 +140,7 @@ body {
 #page-4 {
   height: 100vh;
   width: 100vw;
-  background-color: #0233c5;
+  background-color: #0940e0;
   position: relative;
   display: flex;
   justify-content: center;
@@ -228,6 +229,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  backdrop-filter: blur(1.5px);
 }
 
 #page-7 > #circle > #inner-circle {
@@ -235,7 +237,7 @@ body {
   width: 70%;
   position: absolute;
   border-radius: 50%;
-  background-color: #093fe060;
+  background-color: #093fe091;
   z-index: 10;
   display: flex;
   top: 50%;
@@ -247,7 +249,7 @@ body {
 
 #page-7 > #circle > #inner-circle > img {
   height: 80px;
-  width: 100px;
+  width: 110px;
   position: absolute;
   border-radius: 50%;
   background-color: transparent;
@@ -258,7 +260,6 @@ body {
   color: white;
   font-weight: 200;
 }
-
 
 /* PAGE - 8 CSS */
 #page-8 {
@@ -302,7 +303,7 @@ body {
 
 /* PAGE - 9 CSS */
 #page-9 {
-  height: 100vh;
+  height: 120vh;
   width: 100vw;
   position: relative;
   display: flex;
@@ -321,7 +322,7 @@ body {
   font-weight: 300;
   position: absolute;
   font-family: jost;
-  top: 50%;
+  top: 40%;
   right: 10%;
   transform: translateY(-50%);
   line-height: 90px;
@@ -335,15 +336,26 @@ body {
 }
 
 #pd9-right-dcenter {
-  height: 60%;
+  height: 50%;
   width: 80%;
   background-color: black;
   position: absolute;
   border-radius: 50px;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   background-image: url(https://thisismagma.com/wp-content/uploads/2023/04/magma.wp2.cubdev.com-home-1.jpeg);
   background-size: cover;
+}
+
+#pd9-right-text {
+  position: absolute;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.5);
+  bottom: 0%;
+  padding: 0px 40px 40px 20px;
+  /* transform: translateY(-25%); */
+  font-family: jost;
+  font-weight: 200;
 }
 
 /* PAGE - 10 CSS */
@@ -436,7 +448,3 @@ body {
 #middle-buttons:hover #pd10-effect {
   height: 100%;
 }
-
-
-
-
