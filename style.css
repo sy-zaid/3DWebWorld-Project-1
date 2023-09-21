@@ -104,11 +104,11 @@ body {
   flex-direction: column;
   padding: 0% 10%;
   align-items: flex-start;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: jost;
 }
 
 #page-2 > h1 {
-  color: rgba(255, 255, 255, 0.527);
+  color: rgba(255, 255, 255, 0.342);
   font-size: 50px;
   font-weight: 400;
   margin-top: 30px;
@@ -116,7 +116,7 @@ body {
 
 #page-2 > h2 {
   color: white;
-  font-weight: 100;
+  font-weight: 200;
   font-size: 35px;
 }
 
@@ -146,7 +146,7 @@ body {
   flex-direction: column;
   padding: 0% 10%;
   align-items: flex-start;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: jost;
 }
 
 #page-4 > h1 {
@@ -158,7 +158,7 @@ body {
 
 #page-4 > h2 {
   color: white;
-  font-weight: 100;
+  font-weight: 200;
   font-size: 35px;
 }
 
@@ -184,7 +184,7 @@ body {
   padding: 10% 10%;
   background-color: #0940e0;
   position: relative;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: jost;
 }
 
 #page-6 > h1 {
@@ -197,7 +197,7 @@ body {
 
 #page-6 > h2 {
   color: white;
-  font-weight: 100;
+  font-weight: 200;
   font-size: 35px;
 }
 
@@ -245,7 +245,9 @@ body {
   border: 1px solid white;
 }
 
-#page-7 > #circle > #inner-circle > h1 {
+#page-7 > #circle > #inner-circle > img {
+  height: 80px;
+  width: 100px;
   position: absolute;
   border-radius: 50%;
   background-color: transparent;
@@ -256,6 +258,7 @@ body {
   color: white;
   font-weight: 200;
 }
+
 
 /* PAGE - 8 CSS */
 #page-8 {
@@ -433,3 +436,7 @@ body {
 #middle-buttons:hover #pd10-effect {
   height: 100%;
 }
+
+
+
+

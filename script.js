@@ -54,13 +54,13 @@ function text_animation(elem) {
       document.querySelector(`${elem}`).innerHTML = span;
     }
   });
-  console.log(span);
+  // console.log(span);
 
   gsap.to(`${elem}>span`, {
     scrollTrigger: {
       trigger: `${elem}>span`,
-      start: `top bottom`,
-      end: `bottom top`,
+      start: `100% bottom`,
+      end: `bottom 30%`,
       scroller: `#main`,
       scrub: 0.5,
     },
@@ -440,14 +440,13 @@ https://thisismagma.com/assets/home/lore/seq/136.webp?2
 `;
 creating_canvas(`#page-7>canvas`, `#page-7`, `250%`, pages, 136);
 
-gsap.to(`#page-7>#circle`,{
-  scrollTrigger:{
-    trigger:`#page-7`,
-    start:`top center`,
-    end:`bottom top`,
-    scroller:`#main`,
-    scrub:.5,
-    // markers:true
+gsap.to(`#page-7>#circle`, {
+  scrollTrigger: {
+    trigger: `#page-7`,
+    start: `top center`,
+    end: `bottom top`,
+    scroller: `#main`,
+    scrub: 0.5,
   },
-  scale:1.6,
-})
+  scale: 1.6,
+});
