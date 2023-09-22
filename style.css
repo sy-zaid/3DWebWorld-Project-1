@@ -66,10 +66,11 @@ body {
   width: 50vw;
 }
 .heading-page-1M > h1 {
-  font-family: "AMCAP Eternal", sans-serif;
+  font-family: jost;
   color: white;
-  font-weight: 200;
-  font-size: 8vh;
+  font-weight: 400;
+  font-size: 9vh;
+  width: 100vw;
 }
 .heading-page-1B {
   position: absolute;
@@ -382,7 +383,7 @@ body {
 
 #page-10 > #pd10-top > h1 {
   font-weight: 300;
-  font-size: 90px;
+  font-size: 85px;
   color: white;
   line-height: 95px;
 }
@@ -400,7 +401,6 @@ body {
 #custom-button:hover {
   background-color: #0233c5;
   color: white;
-  border: 1px solid white;
 }
 
 #page-10 > #pd10-middle {

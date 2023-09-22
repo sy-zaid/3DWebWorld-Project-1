@@ -100,13 +100,14 @@ function text_animation(elem, make_bold, end = null, fontweight = null) {
 text_animation(`#page-2>h1`, 0);
 
 // PAGE - 3 | Javascript
+/**
+ * Create animation from sequenced images.
+ * @param {number} elem: Defines the element the animation will be played on e.g. "canvas-1"
+ * @param {triggerPoint}: Defines the page/ point where the animation will start or trigger.
+ * @param {imageFiles}: Contains the source variable of the images.
+ * @param {frameCount}: Number of frames in the canvas.
+ */
 function creating_canvas(elem, triggerPoint, endPoint, imageFiles, frameCount) {
-  /*Parameter elem: Defines the element the animation will be played on e.g. "canvas-1"
-    Parameter triggerPoint: Defines the page/ point where the animation will start or trigger.
-    Parameter imageFiles: Contains the source variable of the images.
-    frameCount: Number of frames in the canvas.
-  
-  */
   let canvas = document.querySelector(elem);
   let context = canvas.getContext("2d");
 
@@ -258,7 +259,7 @@ static/frames00199.png
 static/frames00202.png
 static/frames00007.png
 `;
-creating_canvas("canvas", "#page-3", `bottom`, museum, 67);
+creating_canvas("canvas", "#page-3", `250%`, museum, 66);
 
 // PAGE - 4 | JS
 
@@ -321,7 +322,7 @@ static/bridges00157.png
 static/bridges00160.png
 static/bridges00163.png`;
 
-creating_canvas("#page-5>canvas", "#page-5", `bottom`, bridges, 54);
+creating_canvas("#page-5>canvas", "#page-5", `245%`, bridges, 54);
 
 // PAGE - 6 | JS
 text_animation(`#page-6>h1`, 0);
@@ -503,7 +504,7 @@ function simulateLoading() {
       clearInterval(interval);
       loadingText.textContent = "Loading Complete";
       setTimeout(() => {
-        // Hide the loading screen and show the content
+        // Hides the loading screen and show the content
         document.getElementById("loading-screen").style.display = "none";
         content.style.display = "block";
       }, 500);
@@ -511,7 +512,7 @@ function simulateLoading() {
   }, 20);
 }
 
-// Call the loading function when the page is fully loaded
+// Calls the loading function when the page is fully loaded
 window.addEventListener("load", () => {
   simulateLoading();
 });
