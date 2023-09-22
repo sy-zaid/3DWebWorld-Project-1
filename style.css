@@ -303,7 +303,7 @@ body {
 
 /* PAGE - 9 CSS */
 #page-9 {
-  height: 120vh;
+  height: 130vh;
   width: 100vw;
   position: relative;
   display: flex;
@@ -314,16 +314,19 @@ body {
   height: 100%;
   width: 40%;
   position: relative;
+  justify-content: right;
   background-color: #0340d5;
 }
 #page-9 > #pd9-left > h1 {
+  position: absolute;
   color: white;
   font-size: 100px;
   font-weight: 300;
   position: absolute;
+  background-color: aqua;
   font-family: jost;
   top: 40%;
-  right: 10%;
+  right: 2%;
   transform: translateY(-50%);
   line-height: 90px;
 }
@@ -336,7 +339,7 @@ body {
 }
 
 #pd9-right-dcenter {
-  height: 50%;
+  height: 45%;
   width: 80%;
   background-color: black;
   position: absolute;
@@ -352,7 +355,7 @@ body {
   font-size: 22px;
   color: rgba(255, 255, 255, 0.5);
   bottom: 0%;
-  padding: 0px 40px 40px 20px;
+  padding: 0px 65px 40px 40px;
   /* transform: translateY(-25%); */
   font-family: jost;
   font-weight: 200;
@@ -438,7 +441,7 @@ body {
   width: 100%;
   position: absolute;
   background-color: #0233c5;
-  /* z-index: -9999999; */
+  z-index: -1;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -447,4 +450,14 @@ body {
 
 #middle-buttons:hover #pd10-effect {
   height: 100%;
+}
+
+#links {
+  z-index: 100;
+  text-decoration: none;
+  display: flex;
+  width: 100%;
+  padding: 0% 0%;
+  align-items: center;
+  justify-content: space-between;
 }

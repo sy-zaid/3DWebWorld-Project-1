@@ -41,28 +41,34 @@ function scrollEffect() {
 scrollEffect();
 
 // PAGE - 2 | Javascript
-function text_animation(elem, skipped, end = null) {
+/**
+ * Calculate the area of a rectangle.
+ *
+ * @param {number} elem - The length of the rectangle.
+ * @param {number} make_bold - The width of the rectangle.
+ * @returns {number} The calculated area.
+ */
+function text_animation(elem, make_bold, end = null, fontweight = null) {
+  
   let span = "";
-
   let h1 = document.querySelector(`${elem}`).textContent.split(" ");
-  // console.log(typeof(h1))
+  let count = 0;
 
-  let spanned_val = [];
-  // h1.forEach((value) => {
-  //   if (value != "") {
-  //     span += `<span> ${value} </span>`;
-  //     document.querySelector(`${elem}`).innerHTML = span;
-  //   }
-  // });
-  for (let i = skipped; i <= h1.length; i++) {
+  for (let i = 0; i < h1.length; i++) {
     let value = h1[i];
-    // console.log(value)
-    if (value != "") {
+
+    if ((value != "") & (count != make_bold)) {
+      span += `<span> <b style="font-weight:${fontweight}"> ${value} </b> </span>`;
+      document.querySelector(`${elem}`).innerHTML = span;
+      count += 1;
+      continue;
+    } else if (value != "") {
       span += `<span> ${value} </span>`;
       document.querySelector(`${elem}`).innerHTML = span;
     }
   }
-  // console.log(span);
+
+  console.log(span);
   if (end == null) {
     gsap.to(`${elem}>span`, {
       scrollTrigger: {
@@ -86,7 +92,7 @@ function text_animation(elem, skipped, end = null) {
         // markers:true
       },
       stagger: 0.2,
-      delay:.5,
+      delay: 0.5,
       color: "#fff",
     });
   }
@@ -476,7 +482,9 @@ gsap.to(`#page-7>#circle`, {
 });
 
 // PAGE - 9 | JS
-text_animation(`#p9-li-1`, 0,end=`50%`);
-text_animation(`#p9-li-2`, 0,end=`50%`);
-text_animation(`#p9-li-3`, 0,end=`50%`);
-text_animation(`#p9-li-4`, 0,end=`50%`);
+text_animation(`#page-9>#pd9-left>h1`,0)
+
+text_animation(`#p9-li-1`, 2, (end = `50%`), 500);
+text_animation(`#p9-li-2`, 4, (end = `50%`), 500);
+text_animation(`#p9-li-3`, 3, (end = `50%`), 500);
+text_animation(`#p9-li-4`, 2, (end = `50%`), 500);
