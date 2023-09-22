@@ -49,7 +49,6 @@ scrollEffect();
  * @returns {number} The calculated area.
  */
 function text_animation(elem, make_bold, end = null, fontweight = null) {
-  
   let span = "";
   let h1 = document.querySelector(`${elem}`).textContent.split(" ");
   let count = 0;
@@ -482,9 +481,37 @@ gsap.to(`#page-7>#circle`, {
 });
 
 // PAGE - 9 | JS
-text_animation(`#page-9>#pd9-left>h1`,0)
+text_animation(`#page-9>#pd9-left>h1`, 0);
 
 text_animation(`#p9-li-1`, 2, (end = `50%`), 500);
 text_animation(`#p9-li-2`, 4, (end = `50%`), 500);
 text_animation(`#p9-li-3`, 3, (end = `50%`), 500);
 text_animation(`#p9-li-4`, 2, (end = `50%`), 500);
+
+// Loading Screen
+function simulateLoading() {
+  let progress = 0;
+  const loadingText = document.getElementById("loading-text");
+  const loadingProgress = document.getElementById("loading-progress");
+  const content = document.getElementById("content");
+
+  const interval = setInterval(() => {
+    progress += 1;
+    loadingProgress.textContent = `${progress}%`;
+
+    if (progress >= 100) {
+      clearInterval(interval);
+      loadingText.textContent = "Loading Complete";
+      setTimeout(() => {
+        // Hide the loading screen and show the content
+        document.getElementById("loading-screen").style.display = "none";
+        content.style.display = "block";
+      }, 500);
+    }
+  }, 20);
+}
+
+// Call the loading function when the page is fully loaded
+window.addEventListener("load", () => {
+  simulateLoading();
+});
