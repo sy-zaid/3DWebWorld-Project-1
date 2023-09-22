@@ -40,13 +40,52 @@ function scrollEffect() {
 
 scrollEffect();
 
-// PAGE - 2 | Javascript
+// LOADING SCREEN
+function simulateLoading() {
+  let progress = 0;
+  const loadingText = document.getElementById("loading-text");
+  const loadingProgress = document.getElementById("loading-progress");
+  const content = document.getElementById("content");
+
+  const interval = setInterval(() => {
+    progress += 1;
+    loadingProgress.textContent = `${progress}%`;
+
+    if (progress >= 100) {
+      clearInterval(interval);
+      loadingText.textContent = "Loading Complete";
+      setTimeout(() => {
+        // Hides the loading screen and shows the content
+        const loadingScreen = document.getElementById("loading-screen");
+        if (loadingScreen) {
+          loadingScreen.style.display = "none";
+        }
+        if (content) {
+          content.style.display = "block";
+        }
+      }, 400);
+    }
+  }, 20);
+}
+
+// Calls the loading function when the page is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  simulateLoading();
+});
+
+//
+// NO JS ON PAGE - 1
+//
+
+// PAGE - 2 | JS
 /**
- * Calculate the area of a rectangle.
+ * Adds the scroll effect on any text.
  *
- * @param {number} elem - The length of the rectangle.
- * @param {number} make_bold - The width of the rectangle.
- * @returns {number} The calculated area.
+ * @param {string} elem - The HTML ID or Class on which the effect will be displayed.
+ * @param {string} end - The point of screen where the animation should end with respect to the element bottom.
+ * @param {number} make_bold - The number of words to display them bold (From the start/0th Index) .
+ * @param {number} fontweight - The font weight of the bold text.
+
  */
 function text_animation(elem, make_bold, end = null, fontweight = null) {
   let span = "";
@@ -67,7 +106,7 @@ function text_animation(elem, make_bold, end = null, fontweight = null) {
     }
   }
 
-  console.log(span);
+  // console.log(span);
   if (end == null) {
     gsap.to(`${elem}>span`, {
       scrollTrigger: {
@@ -99,13 +138,14 @@ function text_animation(elem, make_bold, end = null, fontweight = null) {
 
 text_animation(`#page-2>h1`, 0);
 
-// PAGE - 3 | Javascript
+// PAGE - 3 | JS
 /**
  * Create animation from sequenced images.
- * @param {number} elem: Defines the element the animation will be played on e.g. "canvas-1"
- * @param {triggerPoint}: Defines the page/ point where the animation will start or trigger.
- * @param {imageFiles}: Contains the source variable of the images.
- * @param {frameCount}: Number of frames in the canvas.
+ *
+ * @param {string} elem - Defines the element the animation will be played on e.g. "canvas-1"
+ * @param {string} triggerPoint - Defines the page/ point where the animation will start or trigger.
+ * @param {string} imageFiles - Contains the source variable of the images.
+ * @param {number} frameCount - Number of frames in the canvas.
  */
 function creating_canvas(elem, triggerPoint, endPoint, imageFiles, frameCount) {
   let canvas = document.querySelector(elem);
@@ -139,7 +179,7 @@ function creating_canvas(elem, triggerPoint, endPoint, imageFiles, frameCount) {
   }
 
   set_image_list(imagesList, frameCount);
-  console.log(imagesList);
+  // console.log(imagesList);
 
   gsap.to(imageSeq, {
     frame: frameCount - 1,
@@ -191,6 +231,7 @@ function creating_canvas(elem, triggerPoint, endPoint, imageFiles, frameCount) {
   });
 }
 
+// Creating variable containing image paths for creating the canvas.
 let museum = `
 static/frames00013.png
 static/frames00010.png
@@ -266,6 +307,9 @@ creating_canvas("canvas", "#page-3", `250%`, museum, 66);
 text_animation(`#page-4>h1`, 0);
 
 // PAGE - 5 | JS
+
+// Creating variable containing image paths for creating the canvas.
+
 let bridges = `
 static/bridges00004.png
 static/bridges00007.png
@@ -328,6 +372,8 @@ creating_canvas("#page-5>canvas", "#page-5", `245%`, bridges, 54);
 text_animation(`#page-6>h1`, 0);
 
 // PAGE - 7 | JS
+
+// Creating variable containing image paths for creating the canvas.
 
 let pages = `
 https://thisismagma.com/assets/home/lore/seq/1.webp?2
@@ -470,6 +516,7 @@ https://thisismagma.com/assets/home/lore/seq/136.webp?2
 `;
 creating_canvas(`#page-7>canvas`, `#page-7`, `250%`, pages, 136);
 
+// Circle animation at page-7.
 gsap.to(`#page-7>#circle`, {
   scrollTrigger: {
     trigger: `#page-7`,
@@ -481,38 +528,23 @@ gsap.to(`#page-7>#circle`, {
   scale: 1.6,
 });
 
+//
+// NO JS ON PAGE - 8
+//
+
 // PAGE - 9 | JS
+
+// Animation of the left side text.
 text_animation(`#page-9>#pd9-left>h1`, 0);
 
+// Animation of the right side text.
 text_animation(`#p9-li-1`, 2, (end = `50%`), 500);
 text_animation(`#p9-li-2`, 4, (end = `50%`), 500);
 text_animation(`#p9-li-3`, 3, (end = `50%`), 500);
 text_animation(`#p9-li-4`, 2, (end = `50%`), 500);
 
-// Loading Screen
-function simulateLoading() {
-  let progress = 0;
-  const loadingText = document.getElementById("loading-text");
-  const loadingProgress = document.getElementById("loading-progress");
-  const content = document.getElementById("content");
+//
+// NO JS ON PAGE - 10
+//
 
-  const interval = setInterval(() => {
-    progress += 1;
-    loadingProgress.textContent = `${progress}%`;
-
-    if (progress >= 100) {
-      clearInterval(interval);
-      loadingText.textContent = "Loading Complete";
-      setTimeout(() => {
-        // Hides the loading screen and show the content
-        document.getElementById("loading-screen").style.display = "none";
-        content.style.display = "block";
-      }, 500);
-    }
-  }, 20);
-}
-
-// Calls the loading function when the page is fully loaded
-window.addEventListener("load", () => {
-  simulateLoading();
-});
+// ------------------------- END OF JAVASCRIPT ------------------------- //

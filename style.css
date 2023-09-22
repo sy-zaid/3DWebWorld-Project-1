@@ -8,30 +8,57 @@ body {
   height: 100%;
   width: 100%;
 }
-@font-face {
-  font-family: a;
-  src: url("https://fonts.cdnfonts.com/css/hindenburg"), sans-serif;
-}
+
 @font-face {
   font-family: jost;
   src: url(./static/Fonts/Jost-VariableFont_wght.ttf);
+}
+
+/* Styles for the loading screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0340d5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: white;
+  font-family: jost;
+  font-size: 50px;
+}
+
+.loading-text {
+  font-size: 50px;
+  margin-top: 10px;
+  color: white;
+  font-family: jost;
 }
 
 #main {
   position: relative;
   overflow: hidden;
 }
+
+/* PAGE - 1 CSS */
 #page-1 {
   height: 100vh;
   width: 100vw;
-  background-color: red;
+  background-color: #0340d5;
   position: relative;
 }
+
 #page-1 > video {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
+
+/* Navigation Bar */
 #page-1 > nav {
   height: 10vh;
   width: 100vw;
@@ -41,10 +68,12 @@ body {
   justify-content: space-between;
   padding: 0px 30px;
 }
+
 #page-1 > nav > img {
   width: 15%;
   margin-top: 80px;
 }
+
 .primary-button {
   border-radius: 25px;
   padding: 10px 20px;
@@ -53,11 +82,14 @@ body {
   background-color: #0940e0;
   color: white;
 }
+
 #menu-icon-1 {
   background-image: url("./static/menu-bar-icon.png");
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* Headings and Texts */
 .heading-page-1M {
   position: absolute;
   bottom: 10%;
@@ -65,6 +97,7 @@ body {
   height: 40vh;
   width: 50vw;
 }
+
 .heading-page-1M > h1 {
   font-family: jost;
   color: white;
@@ -72,6 +105,7 @@ body {
   font-size: 9vh;
   width: 100vw;
 }
+
 .heading-page-1B {
   position: absolute;
   height: 30%;
@@ -131,6 +165,7 @@ body {
 }
 
 #page-3 > canvas {
+  transform: translate3d(0, 0, 0);
   height: 100vh;
   width: 100vw;
   position: relative;
@@ -230,7 +265,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(1.75px);
 }
 
 #page-7 > #circle > #inner-circle {
@@ -318,13 +353,13 @@ body {
   justify-content: right;
   background-color: #0340d5;
 }
+
 #page-9 > #pd9-left > h1 {
   position: absolute;
   text-align: right;
   color: rgba(255, 255, 255, 0.479);
   font-size: 100px;
   font-weight: 300;
-  /* position: absolute; */
   font-family: jost;
   top: 40%;
   right: 10%;
@@ -357,12 +392,11 @@ body {
   color: rgba(255, 255, 255, 0.5);
   bottom: 0%;
   padding: 0px 65px 40px 40px;
-  /* transform: translateY(-25%); */
   font-family: jost;
   font-weight: 200;
 }
 
-/* PAGE - 10 CSS */
+/* PAGE - 10 CSS | LAST PAGE*/
 #page-10 {
   height: 110vh;
   width: 100vw;
@@ -375,7 +409,6 @@ body {
   height: 50%;
   width: 100%;
   position: relative;
-  /* background-color: magenta; */
   font-family: jost;
   padding-left: 6%;
   padding-top: 4%;
@@ -406,8 +439,6 @@ body {
 #page-10 > #pd10-middle {
   height: 50%;
   width: 100%;
-  /* margin-top: 50px; */
-  /* background-color: red; */
   border-top: 1px solid rgba(255, 255, 255, 0.568);
 }
 
@@ -462,27 +493,4 @@ body {
   justify-content: space-between;
 }
 
-/* Styles for the loading screen */
-.loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color:#0340d5;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  color: white;
-  font-family: jost;
-  font-size: 50px;
-}
-
-.loading-text {
-  font-size: 50px;
-  margin-top: 10px;
-  color: white;
-  font-family: jost;
-}
+/* ------------------------- END OF CSS ------------------------- */
